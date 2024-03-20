@@ -8,8 +8,9 @@ Shopzey is an ecommerce website focusing on men's collections. It is built using
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
+  - [Frontend (Client-side)](#frontend-client-side)
+  - [Backend (Server-side)](#backend-server-side)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Introduction
@@ -37,25 +38,25 @@ Shopzey is a modern and user-friendly ecommerce platform specifically designed f
 
 To get started with Shopzey locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/your-username/shopzey.git`
-2. Navigate to the project directory: `cd shopzey`
+### Frontend (Client-side)
+
+1. Clone the repository: `git clone https://github.com/Shadrack-S/mern-ecommerce-redux.git`
+2. Navigate to the frontend directory: `cd mern-ecommerce-redux/frontend`
 3. Install dependencies: `npm install`
-4. Set up environment variables (e.g., MongoDB connection string, API keys).
-5. Start the development server: `npm start`
+4. Start the development server: `npm run dev`
+
+### Backend (Server-side)
+
+1. Navigate to the backend directory: `cd mern-ecommerce-redux/backend`
+2. Install dependencies: `npm install`
+3. Set up environment variables (e.g., MongoDB connection string, API keys).
+4. Start the server: `npm start`
+
+After following these steps, you should have the frontend and backend of Shopzey running locally. You can access the frontend through the specified development server URL and interact with the backend APIs as needed.
 
 ## Usage
 
 Once the development server is running, you can access the Shopzey website and explore its features. You can register as a new user, browse products, add items to the cart, and proceed to checkout.
-
-## Contributing
-
-Contributions to Shopzey are welcome! If you'd like to contribute, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch for your feature or bug fix: `git checkout -b feature-new-feature`
-3. Make your changes and commit them: `git commit -am 'Add new feature'`
-4. Push to the branch: `git push origin feature-new-feature`
-5. Submit a pull request.
 
 ## License
 
