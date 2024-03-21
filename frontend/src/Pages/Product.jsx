@@ -2,6 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { FaRegStar, FaStar, FaShoppingCart } from "react-icons/fa";
 import { useLoaderData } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../features/cart/cartSlice';
 
 export async function loader({ params }) {
     try {
@@ -19,6 +21,7 @@ export async function loader({ params }) {
 }
 
 const Product = () => {
+    const dispatch = useDispatch();
     const { product } = useLoaderData();
     console.log(product);
 
@@ -27,12 +30,16 @@ const Product = () => {
     const deducted = mrp - sellingprice;
     const percent = Math.floor((deducted / mrp) * 100);
 
+    const handleAddToCart = () => {
+        dispatch(addToCart(product)); 
+        
+      };
 
     return (
         <main className='container mx-auto px-4 py-8 h-full'>
-            <section className='flex flex-row gap-16'>
-                <div className='grid grid-cols-4 grid-rows-4 gap-2 w-[50%] '>
-                    {/* First three images occupy the first column and each spans one row. */}
+            <section className='md:flex md:flex-row md:gap-10 sm:flex sm:flex-col '>
+                {/* Desktop view: Display 3 images in the first column and 1 image in the second column */}
+                <div className='hidden md:grid grid-cols-4 grid-rows-4 gap-2 w-[50%]'>
                     <img
                         className="row-start-1 row-span-1 col-span-1 w-full h-full object-cover"
                         src={product.images[0]}
@@ -48,11 +55,19 @@ const Product = () => {
                         src={product.images[2]}
                         alt="image 3"
                     />
-                    {/* Fourth image starts from the second column and spans the rest. */}
                     <img
-                        className="row-start-1 row-span-3 col-start-2 col-span-3 w-full h-full object-center object-cover"
+                        className="row-start-1 row-span-3 col-start-2 col-span-3 w-full  h-full object-center object-cover"
                         src={product.thumbnail}
-                        alt="Product 4"
+                        alt="Product thumbnail"
+                    />
+                </div>
+
+                {/* Mobile view: Display only thumbnail */}
+                <div className='flex md:hidden '>
+                    <img
+                        className="w-full h-full object-center object-cover  sm:mb-10"
+                        src={product.thumbnail}
+                        alt="Product thumbnail"
                     />
                 </div>
 
@@ -84,7 +99,9 @@ const Product = () => {
                             <li className='bg-slate-200 h-10 w-10 rounded-full flex justify-center items-center font-semibold hover:underline'>XL</li>
                         </ul>
 
-                        <button className='bg-gradient-to-r from-gray-800 to-gray-900 text-white p-3 mt-5 flex justify-center items-center gap-2 rounded-md shadow-md hover:bg-gray-700 transition duration-300'>
+                        <button 
+                         onClick={handleAddToCart}
+                        className='bg-gradient-to-r from-gray-800 to-gray-900 text-white p-3 mt-5 flex justify-center items-center gap-2 rounded-md shadow-md hover:bg-gray-700 transition duration-300  w-full'>
                             <span className="font-semibold">Add to Cart</span>
                             <FaShoppingCart className="text-xl" />
                         </button>
