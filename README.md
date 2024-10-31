@@ -50,7 +50,7 @@ To get started with Shopzey locally, follow these steps:
 1. Navigate to the backend directory: `cd mern-ecommerce-redux/backend`
 2. Install dependencies: `npm install`
 3. Set up environment variables (e.g., MongoDB connection string, API keys).
-4. Start the server: `npm start`
+4. Start the server: `npm run dev`
 
 After following these steps, you should have the frontend and backend of Shopzey running locally. You can access the frontend through the specified development server URL and interact with the backend APIs as needed.
 
